@@ -999,8 +999,6 @@ GameObject:
   - component: {fileID: 490624494352808884}
   - component: {fileID: 7689580141286232511}
   - component: {fileID: 6341344850820229421}
-  - component: {fileID: 3970207970909663952}
-  - component: {fileID: 5112145895546844012}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: dragon
@@ -1076,7 +1074,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 5d6c59bef6ddb9c41b64c8eba62760a0, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: BasicAgent
@@ -1101,7 +1099,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   target: {fileID: 0}
-  speed: 10
+  speed: 50
+  initial: {fileID: 0}
 --- !u!114 &6341344850820229421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1116,63 +1115,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
---- !u!114 &3970207970909663952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3970207970909663954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9685bac759362440ea71765cdece3305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  walkSpeed: 3
---- !u!114 &5112145895546844012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3970207970909663954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df05ec10e50114a9d92106879d04d89d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagToDetect: portal
-  onTriggerEnterEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onTriggerStayEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onTriggerExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onCollisionEnterEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: BaddieTouchedBlock
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onCollisionStayEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onCollisionExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3970207971548356652
 GameObject:
   m_ObjectHideFlags: 0
