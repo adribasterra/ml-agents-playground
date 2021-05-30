@@ -12,7 +12,17 @@ public class AgentController : Agent
 
     public override void OnEpisodeBegin()
     {
-        this.transform.position = new Vector3(0f, this.transform.position.y, 0f);
+        // Level 1
+        this.transform.position = new Vector3(-12.2401171f, /*7.72233248f*/this.transform.position.y, 4.74711323f);
+        float xDist = Random.Range(-20.0f, 20.0f);
+        float zDist = Random.Range(-20.0f, 20.0f);
+        target.transform.position = new Vector3(xDist, this.transform.position.y, zDist);
+        xDist = Random.Range(-10.0f, 30.0f);
+        zDist = Random.Range(-15.0f, 25.0f);
+        this.transform.position = new Vector3(xDist, this.transform.position.y, zDist);
+
+        // Final level
+        //this.transform.position = new Vector3(235.8f, /*7.72233248f*/this.transform.position.y, -338f);
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -25,7 +35,10 @@ public class AgentController : Agent
     {
         float moveX = actions.ContinuousActions[0];
         float moveZ = actions.ContinuousActions[1];
-        
+        //this.GetComponent<Rigidbody>().MovePosition(new Vector3(moveX, this.transform.position.y, moveZ) * speed* Time.deltaTime);
+        //this.GetComponent<Rigidbody>().AddForce(new Vector3(moveX, 0, moveZ), ForceMode.Acceleration);
+        //Debug.Log(new Vector3(moveX, 0, moveZ) * speed * Time.deltaTime);
+        //Debug.Log(new Vector3(moveX, 0, moveZ));
         this.transform.position += new Vector3(moveX, 0f, moveZ) * speed * Time.deltaTime;
     }
 
@@ -45,8 +58,24 @@ public class AgentController : Agent
         }
         if (other.gameObject.tag == "target")
         {
-            SetReward(+1f);
+            SetReward(+10f);
             EndEpisode();
         }
     }
+
+    //public void OnCollisionEnter(Collision collider)
+    //{
+    //    if(collider.gameObject.tag == "wall")
+    //    {
+    //        AddReward(-0.5f);
+    //    }
+    //}
+
+    //public void OnCollisionStay(Collision collider)
+    //{
+    //    if (collider.gameObject.tag == "wall")
+    //    {
+    //        AddReward(-2f);
+    //    }
+    //}
 }
