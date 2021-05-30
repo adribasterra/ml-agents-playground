@@ -1,3 +1,5 @@
+#define Level4
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,17 +14,24 @@ public class AgentController : Agent
 
     public override void OnEpisodeBegin()
     {
-        // Level 1
-        this.transform.position = new Vector3(-12.2401171f, /*7.72233248f*/this.transform.position.y, 4.74711323f);
+#if Level1
+        // Level 1 & 2
         float xDist = Random.Range(-20.0f, 20.0f);
         float zDist = Random.Range(-20.0f, 20.0f);
         target.transform.position = new Vector3(xDist, this.transform.position.y, zDist);
-        xDist = Random.Range(-10.0f, 30.0f);
-        zDist = Random.Range(-15.0f, 25.0f);
+        xDist = Random.Range(-20.0f, 20.0f);
+        zDist = Random.Range(-20.0f, 20.0f);
         this.transform.position = new Vector3(xDist, this.transform.position.y, zDist);
 
+#elif Level3
+        // Level 3
+        this.transform.position = new Vector3(-15f, this.transform.position.y, 0f);
+
+#elif Level4
         // Final level
-        //this.transform.position = new Vector3(235.8f, /*7.72233248f*/this.transform.position.y, -338f);
+        this.transform.position = new Vector3(235.8f, /*7.72233248f*/this.transform.position.y, -338f);
+#endif
+
     }
 
     public override void CollectObservations(VectorSensor sensor)
